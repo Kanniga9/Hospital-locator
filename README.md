@@ -1,0 +1,1 @@
+Developed a real-time web application that allows users to locate nearby health services such as hospitals, clinics, and pharmacies based on their current location or custom search. The system uses Google Maps integration for geolocation and map rendering, and a Firebase database to manage service provider details.
