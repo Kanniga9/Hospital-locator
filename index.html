@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nearby Health Services Locator</title>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css" />
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-compat.js"></script>
+
+  <script>
+    const firebaseConfig = {
+      apiKey:  "AIzaSyCZTxKHJrYDoaJCrGsJyPVH9KStHvzPXok",
+      authDomain: "hospital-locator-51d33.firebaseapp.com",
+      projectId: "hospital-locator-51d33",
+      storageBucket:"hospital-locator-51d33.firebasestorage.app",
+      messagingSenderId:  "845703572868",
+      appId:"1:845703572868:web:d72d04133ffd33bf4401d1"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>Nearby Health Services Locator</h1>
+
+    <div class="controls">
+      <label for="serviceType">Service Type:</label>
+      <select  id="serviceType" name="serviceType">
+        <option value="hospital">Hospital</option>
+        <option value="clinic">Clinic</option>
+        <option value="pharmacy">Pharmacy</option>
+      </select>
+
+      <button onclick="getLocation()">Search Nearby</button>
+      <button onclick="window.location.href='history.html'">View Emergency Card History</button>
+    </div>
+
+    <div id="map"></div>
+
+    <div id="card">
+      <h3 id="serviceName">Hospital</h3>
+      <p><strong>Contact:</strong> <span id="contact">Not Available</span></p>
+      <p><strong>Opening Hours:</strong> <span id="openingHours">Mon: 9 – 17:00</span></p>
+      <button onclick="window.print()">Print Emergency Card</button>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
